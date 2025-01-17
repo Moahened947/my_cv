@@ -3,131 +3,582 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My CV</title>
+    <title>Mohaned M Atohami - Cloud & DevOps Engineer</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #2193b0, #6dd5ed);
+            --secondary-gradient: linear-gradient(135deg, #4b6cb7, #182848);
+            --accent-gradient: linear-gradient(135deg, #FF8008, #FFC837);
+            --text-color: #2c3e50;
+            --light-bg: #f8f9fa;
+            --border-radius: 12px;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --hover-transform: translateY(-5px);
+        }
+
         body {
-            background-color: #f8f9fa;
-            color: #333;
+            background: #f0f2f5;
+            color: var(--text-color);
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
         }
+
         .container {
-            margin-top: 20px;
+            max-width: 1100px;
+            margin: 40px auto;
             background: #fff;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: var(--border-radius);
+            padding: 40px;
+            box-shadow: var(--box-shadow);
+            position: relative;
+            overflow: hidden;
         }
-        h1, h2 {
-            color: #0d6efd;
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--primary-gradient);
         }
-        .section-title {
-            border-bottom: 2px solid #0d6efd;
-            margin-bottom: 15px;
-            padding-bottom: 5px;
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.8);
         }
-        .badge {
-            margin-right: 5px;
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(33, 147, 176, 0.1) 0%, rgba(109, 213, 237, 0.1) 100%);
+            z-index: 0;
         }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--primary-gradient);
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-image-container {
+            position: relative;
+            width: 220px;
+            height: 220px;
+            margin: 0 auto 30px;
+        }
+
         .profile-image {
-            width: 150px;
-            height: 150px;
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            margin: 0 auto;
-            display: block;
-            border: 4px solid #0d6efd;
+            border: 5px solid #fff;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-image-container::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2193b0 0%, #6dd5ed 100%);
+            opacity: 0.2;
+            z-index: 0;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.2;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.3;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.2;
+            }
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .name-title {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin: 0 0 10px;
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .name-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary-gradient);
+            border-radius: 2px;
+        }
+
+        .profession-title {
+            color: #4b6cb7;
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin: 20px 0;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+
+        .contact-links {
+            margin: 25px 0 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .contact-links a {
+            color: #4b6cb7;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            background: #fff;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            border: 1px solid rgba(75, 108, 183, 0.1);
+        }
+
+        .contact-links a i {
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            background: var(--secondary-gradient);
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-links a:hover i {
+            transform: scale(1.1);
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: #fff;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .section:hover {
+            transform: var(--hover-transform);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-title {
+            color: #2193b0;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #e0e0e0;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: var(--primary-gradient);
+        }
+
+        .section-title i {
+            font-size: 1.8rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .skill-category {
+            background: #fff;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-category h5 {
+            color: #4b6cb7;
             margin-bottom: 15px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .skill-category h5 i {
+            font-size: 1.2rem;
+            background: var(--secondary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .badge {
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 20px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .badge:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-item {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover {
+            background: #fff;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .experience-item h5 {
+            color: #2193b0;
+            margin-bottom: 15px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .experience-item ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .experience-item ul li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: #2193b0;
+        }
+
+        .certification-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+            background: #fff;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .certification-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .certification-item i {
+            font-size: 1.5rem;
+            min-width: 40px;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .contact-info-item {
+            padding: 20px;
+            background: #fff;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-info-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info-item i {
+            font-size: 1.5rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .contact-info-item a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info-item a:hover {
+            color: #2193b0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 20px;
+            }
+
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .profile-image-container {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #2193b0, #6dd5ed);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #1c7a94, #5ab8cc);
         }
     </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <img src="profile.jpg" alt="Profile Image" class="profile-image">
-        <h1 class="text-center">MOHANED M ATOHAMI</h1>
-        <p class="text-center"><a href="#">LinkedIn</a> | <a href="https://github.com/Moahened947">GitHub</a></p>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <div class="profile-image-container">
+                    <img src="profile.jpg" alt="Profile Image" class="profile-image">
+                </div>
+                <h1 class="name-title">MOHANED M ATOHAMI</h1>
+                <div class="profession-title">Cloud & DevOps Engineer</div>
+                <div class="contact-links">
+                    <a href="#" target="_blank" class="linkedin-link">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/Moahened947" target="_blank" class="github-link">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </div>
 
-        <section class="mt-5 mb-5">
-            <h2 class="section-title">Professional Summary</h2>
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-user-tie"></i> Professional Summary</h2>
             <p>
                 Experienced Cloud and DevOps Engineer with a strong background in designing, deploying, and managing cloud infrastructure. Proficient in configuration management, CI/CD pipelines, and container orchestration. Skilled in leveraging industry-leading cloud platforms and tools to streamline processes and drive efficiency. Passionate about implementing scalable and resilient solutions while maintaining a focus on best practices and security.
             </p>
         </section>
 
-        <section class="mb-5">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <h5>Operating Systems</h5>
-                    <span class="badge bg-primary">Windows Server</span>
-                    <span class="badge bg-primary">Linux Server Administration</span>
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-laptop-code"></i> Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h5><i class="fas fa-server"></i> Operating Systems</h5>
+                    <span class="badge" style="background: linear-gradient(135deg, #4b6cb7, #182848)">Windows Server</span>
+                    <span class="badge" style="background: linear-gradient(135deg, #4b6cb7, #182848)">Linux Server Administration</span>
                 </div>
-                <div class="col-md-6">
-                    <h5>Configuration Management</h5>
-                    <span class="badge bg-success">Ansible</span>
+                <div class="skill-category">
+                    <h5><i class="fas fa-cogs"></i> Configuration Management</h5>
+                    <span class="badge" style="background: linear-gradient(135deg, #11998e, #38ef7d)">Ansible</span>
                 </div>
-                <div class="col-md-6 mt-3">
-                    <h5>CI/CD</h5>
-                    <span class="badge bg-info">Jenkins</span>
-                    <span class="badge bg-info">GitHub Actions</span>
+                <div class="skill-category">
+                    <h5><i class="fas fa-code-branch"></i> CI/CD</h5>
+                    <span class="badge" style="background: linear-gradient(135deg, #2193b0, #6dd5ed)">Jenkins</span>
+                    <span class="badge" style="background: linear-gradient(135deg, #2193b0, #6dd5ed)">GitHub Actions</span>
                 </div>
-                <div class="col-md-6 mt-3">
-                    <h5>Containers</h5>
-                    <span class="badge bg-warning">Docker</span>
+                <div class="skill-category">
+                    <h5><i class="fab fa-docker"></i> Containers</h5>
+                    <span class="badge" style="background: linear-gradient(135deg, #FF8008, #FFC837)">Docker</span>
                 </div>
-                <div class="col-md-6 mt-3">
-                    <h5>Container Orchestration</h5>
-                    <span class="badge bg-danger">Kubernetes (Certified Administrator)</span>
+                <div class="skill-category">
+                    <h5><i class="fas fa-dharmachakra"></i> Container Orchestration</h5>
+                    <span class="badge" style="background: linear-gradient(135deg, #eb3349, #f45c43)">Kubernetes (CKA)</span>
                 </div>
-                <div class="col-md-6 mt-3">
-                    <h5>Cloud Providers</h5>
-                    <span class="badge bg-secondary">AWS</span>
-                    <span class="badge bg-secondary">Azure</span>
+                <div class="skill-category">
+                    <h5><i class="fas fa-cloud"></i> Cloud Providers</h5>
+                    <span class="badge" style="background: linear-gradient(135deg, #4b6cb7, #182848)">AWS</span>
+                    <span class="badge" style="background: linear-gradient(135deg, #4b6cb7, #182848)">Azure</span>
                 </div>
-                <div class="col-md-6 mt-3">
-                    <h5>Monitoring</h5>
-                    <span class="badge bg-dark">Grafana</span>
+                <div class="skill-category">
+                    <h5><i class="fas fa-chart-line"></i> Monitoring</h5>
+                    <span class="badge" style="background: linear-gradient(135deg, #232526, #414345)">Grafana</span>
                 </div>
-                <div class="col-md-6 mt-3">
-                    <h5>Programming Languages</h5>
-                    <span class="badge bg-primary">Python</span>
-                    <span class="badge bg-primary">JavaScript</span>
-                    <span class="badge bg-primary">Bash Script</span>
+                <div class="skill-category">
+                    <h5><i class="fas fa-code"></i> Programming Languages</h5>
+                    <span class="badge" style="background: linear-gradient(135deg, #4b6cb7, #182848)">Python</span>
+                    <span class="badge" style="background: linear-gradient(135deg, #4b6cb7, #182848)">JavaScript</span>
+                    <span class="badge" style="background: linear-gradient(135deg, #4b6cb7, #182848)">Bash Script</span>
                 </div>
-                <div class="col-md-6 mt-3">
-                    <h5>Infrastructure as Code</h5>
-                    <span class="badge bg-success">Terraform</span>
+                <div class="skill-category">
+                    <h5><i class="fas fa-sitemap"></i> Infrastructure as Code</h5>
+                    <span class="badge" style="background: linear-gradient(135deg, #11998e, #38ef7d)">Terraform</span>
                 </div>
             </div>
         </section>
 
-        <section class="mb-5">
-            <h2 class="section-title">Professional Experience</h2>
-            <h5>Cloud and DevOps Engineer</h5>
-            <ul>
-                <li>Designed and implemented scalable and secure cloud infrastructure on AWS and Azure.</li>
-                <li>Automated configuration management using Ansible to reduce manual intervention.</li>
-                <li>Developed CI/CD pipelines with Jenkins and GitHub Actions, optimizing deployment time.</li>
-                <li>Deployed containerized applications using Docker and orchestrated clusters with Kubernetes.</li>
-            </ul>
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-briefcase"></i> Professional Experience</h2>
+            <div class="experience-item">
+                <h5><i class="fas fa-building"></i> Cloud and DevOps Engineer</h5>
+                <ul>
+                    <li>Designed and implemented scalable and secure cloud infrastructure on AWS and Azure.</li>
+                    <li>Automated configuration management using Ansible to reduce manual intervention.</li>
+                    <li>Developed CI/CD pipelines with Jenkins and GitHub Actions, optimizing deployment time.</li>
+                    <li>Deployed containerized applications using Docker and orchestrated clusters with Kubernetes.</li>
+                </ul>
+            </div>
         </section>
 
-        <section class="mb-5">
-            <h2 class="section-title">Certifications</h2>
-            <ul>
-                <li>AWS Certified Solutions Architect – Associate</li>
-                <li>AWS Certified SysOps Administrator – Associate</li>
-                <li>Microsoft Certified: Azure Administrator Associate</li>
-                <li>Kubernetes Certified Administrator (CKA)</li>
-            </ul>
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-certificate"></i> Certifications</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="certification-item">
+                        <i class="fab fa-aws" style="color: #FF9900;"></i>
+                        <span>AWS Certified Solutions Architect – Associate</span>
+                    </div>
+                    <div class="certification-item">
+                        <i class="fab fa-aws" style="color: #FF9900;"></i>
+                        <span>AWS Certified SysOps Administrator – Associate</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="certification-item">
+                        <i class="fab fa-microsoft" style="color: #00a4ef;"></i>
+                        <span>Microsoft Certified: Azure Administrator Associate</span>
+                    </div>
+                    <div class="certification-item">
+                        <i class="fas fa-certificate" style="color: #326CE5;"></i>
+                        <span>Kubernetes Certified Administrator (CKA)</span>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section class="mb-5">
-            <h2 class="section-title">Contact Info</h2>
-            <ul>
-                <li>Phone Number: 218 92 3219458</li>
-                <li>WhatsApp: <a href="https://wa.me/218923219458" target="_blank">218 92 3219458</a></li>
-                <li>Email: mohanedatohami@gmail.com</li>
-            </ul>
+        <section class="section">
+            <h2 class="section-title"><i class="fas fa-address-card"></i> Contact Info</h2>
+            <div class="contact-info">
+                <div class="contact-info-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+218 92 3219458</span>
+                </div>
+                <div class="contact-info-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <a href="https://wa.me/218923219458" target="_blank">+218 92 3219458</a>
+                </div>
+                <div class="contact-info-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:mohanedatohami@gmail.com">mohanedatohami@gmail.com</a>
+                </div>
+            </div>
         </section>
     </div>
 
